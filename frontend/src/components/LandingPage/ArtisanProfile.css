@@ -1,0 +1,97 @@
+.heading{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 20px;
+    text-align: center;
+}
+
+.heading h2{
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.artisans-grid{ 
+    display: grid;
+    gap: 2rem;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.featured-artisan{
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.featured_wrapper{
+    width: 100%;
+}
+.featured-artisan img{
+    width: 100%;
+    height: 500px;
+    border-radius: 0; 
+    object-fit: cover; 
+}
+
+.featured-artisan-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    height: 100%;
+    padding-right: 79px;
+    text-align: left;
+}
+
+.featured-artisan-info h2{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    padding: 10px;
+}
+
+.featured-artisan-info p{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #777;
+    padding: 10px;
+}
+
+.featured-artisan-info button{
+    color: #2b2b2b;
+    border: 1px solid #2b2b2b;
+    padding: 15px 35px;
+    font-size: 13px;
+    border-radius: 30px;
+    cursor: pointer;
+    /* margin-top: 40px; */
+} 
+
+.featured-artisan-info button:hover{
+    background-color: #eba974; 
+    color: #f5f5f5;
+    border: none;
+}
+
+.other-artisans{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.artisan-card{
+    text-align: center;
+}
+
+.artisan-card img{
+    width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+}
+
+.artisan-card h3{
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}

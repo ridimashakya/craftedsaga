@@ -1,0 +1,62 @@
+.block-img{
+    width: 100%;
+    min-height: 93vh;
+    background: 
+        /* linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),  */
+        url(../../assets/art.png);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    position: relative;
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 60%; 
+    /* min-height: 47vh; */
+    padding: 40px 40px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px; 
+    position: absolute;
+    bottom: -100px;
+    left: 120px;
+    z-index: 1;
+}
+
+.text{
+    padding: 20px 40px;
+    width: 60%;
+}
+
+.text h4{
+    font-size: 30px;
+    font-weight: -0px;
+    line-height: 50px;
+}
+
+.text h4 i{
+    font-size: 10px;
+}
+
+.small-text{
+    text-align: right;
+}
+
+.text p{
+    line-height: 30px;
+}
+
+.btn-primary{
+    position: absolute; 
+    bottom: 70px;
+    right: 110px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover{
+    background-color: #de9c66; 
+}

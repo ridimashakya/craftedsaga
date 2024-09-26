@@ -1,0 +1,17 @@
+.content-wrapper2{
+    background-color: #f2eeee;
+    position: relative;
+    top: -100px;
+}
+
+.info_container2{
+    position: absolute;
+    bottom: 145px;
+    left: 100px;
+    width: 40%;
+    background-color: #fff;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 50px;
+}
