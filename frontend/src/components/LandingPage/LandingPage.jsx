@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import './LandingPage.css'
 import './SecondLayer.css'
@@ -10,28 +10,31 @@ import './Section3.css'
 
 import image from '../../assets/art1_2.jpeg'
 import {artisans} from '../../assets/assets'
-import display from '../../assets/a1.jpeg'
 import logo from '../../assets/logo11.png'
-import fiberArts from '../../assets/fiberArt7.jpeg'
+import fiberArts7 from '../../assets/fiberArt7.jpeg'
 import VisualArts from '../../assets/VisualArts2.jpeg'
 import HandcraftedArts from '../../assets/HandcraftedArts3.jpeg'
 
 import { useNavigate } from 'react-router-dom'
 import Popular_Items from '../Items/Popular_Items'
-import fiber_arts from '../../assets/data'
+// import fiber_arts from '../../assets/data'
 
-// import BasicSection from '../BasicSection'
+import fiberArts from '../../assets/data'
+import { visualArts, handcraftedArts} from '../../assets/data'
 
-const footerSection = ["crafts", "collections", "artisans", "journal", "about"]
+const footerSection = ["crafts", "collections", "artisans", "journal", "about"];
 
 const LandingPage = () => {
   // Placeholder for future dynamic featured artisan logic
   // Manually selecting the first artisan for now
   const featuredArtisan = artisans[0];
+  const allArts =[...fiberArts, ...visualArts, ...handcraftedArts];
+  
   const navigate = useNavigate();
+  
   return (
 
-    <div>
+  <div>
 
     <div className='block-img' id="crafts">
 
@@ -82,12 +85,12 @@ const LandingPage = () => {
             <br/>
             <p>Humblism inspired by the artisanal living.</p>
 
-            <button className="button-group">
+            <div className="button-group">
                 <button className='showcase-button one'>SHOP COLLECTION</button>
                 <button className='showcase-button two'>
                   <a href="#stories">READ STORY</a>
                 </button>
-            </button>
+            </div>
 
         </div>
     </section>
@@ -124,7 +127,7 @@ const LandingPage = () => {
     <div className='content-wrapper container-custom mb-24' id="shopNow">
 
       <div className="images">
-        <img  src={fiberArts} alt="Crochets" className='w-full h-[200px] md:h-[400px] object-cover pl-20 pr-40'/>
+        <img  src={fiberArts7} alt="Crochets" className='w-full h-[200px] md:h-[400px] object-cover pl-20 pr-40'/>
       </div>
 
       <div className="info_container text-small_font">
@@ -177,9 +180,9 @@ const LandingPage = () => {
       <hr className='w-[200px] h-[4px] rounded-[10px] bg-black'/>
       <div className="w-[80%] overflow-x-auto">
       <div className='popular_items grid grid-flow-col grid-rows-1 gap-4 mb-24'>
-          {fiber_arts.map((item,i)=>{
-              return (<Popular_Items key={i} id={item.id} name={item.art_name} image={item.art_image} new_price={item.art_price_new} old_price={item.art_price_old}/>)
-          })}
+          {allArts.map((item,i)=>(
+              <Popular_Items key={i} id={item.id} name={item.art_name} image={item.art_image} new_price={item.art_price_new} old_price={item.art_price_old}/>
+          ))}
       </div>
       </div>
     </div>

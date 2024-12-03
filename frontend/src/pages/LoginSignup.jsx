@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import image from '../assets/art1_1.jpeg'
 import CustomCheckBox from '../components/Checkbox/CustomCheckBox'
 import { useNavigate } from 'react-router-dom'
+import axiosInstance from '../utils/axios'
+import {useCookies} from 'react-cookie'
 
 const LoginSignup = () => {
   const [form, setForm] = useState({
@@ -9,6 +11,28 @@ const LoginSignup = () => {
     password: "",
     isChecked: false
   });
+
+  const [cookie, setCookie] = useCookies("access_token");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try{
+      const response = await axiosInstance.post("/auth/login", form);
+      const {token, userId} = response.data;
+      setCookie("access_token", token, {
+        path: "/",
+        sameSite: "none",
+        secure: true,
+      });
+      window.localStorage.setItem("userId", userId);
+      navigate("/", {replace: true});
+    } catch(error){
+      console.log(error.response.messgae);
+    }
+
+  }
 
   const handleChange = (e) => {
     const {name, value} = e.target
@@ -22,25 +46,23 @@ const LoginSignup = () => {
     const {name, checked} = e.target
     setForm((prevData) => ({...prevData, [name]: checked}));
   }
-
-  const navigate = useNavigate();
-
-  console.log(form);
   
   return (
     <div className="bg-customColor w-full h-screen pt-16 overflow-hidden">
       <div className='grid grid-cols-[6fr_6fr] ml-10 mr-10 h-[600px] '>
 
-        <form action="" className='flex flex-col justify-center items-center gap-4 w-full bg-white relative'>
+        <form 
+        onSubmit = {(e) => handleLogin(e)}
+        className='flex flex-col justify-center items-center gap-4 w-full bg-white relative'>
 
             <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-3/5">
             <h1 className='text-3xl text-amber-900 py-2'>LOGIN</h1>
             <div className=" flex flex-col border-2 border-customColor rounded-md p-10 ">
 
               <label htmlFor="email" className='py-2' >Email</label>
-              <input type="email" value={form?.email} placeholder='Type your email' className='border-2 border-customColor rounded-md p-3 ' name="email" onChange={handleChange}/>
+              <input type="email" placeholder='Type your email' className='border-2 border-customColor rounded-md p-3 ' name="email" onChange={handleChange}/>
               <label htmlFor="password" className='py-2'>Password</label>
-              <input type="password" value={form?.password} placeholder='Type your password' className='border-2 border-customColor rounded-md p-3 ' name="password" onChange={handleChange}/>
+              <input type="password" placeholder='Type your password' className='border-2 border-customColor rounded-md p-3 ' name="password" onChange={handleChange}/>
 
               <CustomCheckBox
                 name="isChecked"

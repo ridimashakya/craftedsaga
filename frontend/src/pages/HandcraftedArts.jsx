@@ -4,7 +4,7 @@ import {handcraftedArts} from '../assets/data'
 
 const HandcraftedArts = () => {
   return (
-    <div style={{backgroundColor: '#f2eeee'}}>
+    <div className="bg-[#f2eeee]">
     
     <Popular
      title="Explore the collection of Handcrafted Arts"

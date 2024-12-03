@@ -4,7 +4,7 @@ import fiberArts from '../assets/data'
 
 const FiberArts = () => {
   return (
-    <div style={{backgroundColor: '#f2eeee'}}>
+    <div className="bg-[#f2eeee]">
   
       <Popular
       title="Explore the collection of Fiber Arts"

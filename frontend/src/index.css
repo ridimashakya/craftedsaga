@@ -38,3 +38,12 @@ a{
     cursor: pointer;
     /* outline: 0; */
 }
+
+/* .listCart .quantity span:nth-child(2){
+    background-color: tranparent;
+    color: #eee;
+}
+  
+.list .item:nth-child(even){
+    background-color: #eee1;
+} */

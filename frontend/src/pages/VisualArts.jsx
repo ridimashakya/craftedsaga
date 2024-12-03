@@ -4,7 +4,7 @@ import {visualArts} from '../assets/data'
 
 const VisualArts = () => {
   return (
-    <div style={{backgroundColor: '#f2eeee'}}>    
+    <div className="bg-[#f2eeee]">    
 
         <Popular 
          title="Explore the collection of Visual Arts"
