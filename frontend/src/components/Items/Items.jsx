@@ -12,7 +12,7 @@ const Items = ({ id, name, image, old_price, new_price}) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, name, image, new_price }));
+    dispatch(addToCart({ id, name, image, new_price}));
   }
 
   return(

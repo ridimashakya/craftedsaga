@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import '../../index.css'
 import { useSelector, useDispatch } from 'react-redux';
+import { incrementQuantity, decrementQuantity, removeFromCart} from '../../redux/cart';
 
 const Cart = () => {
 
@@ -9,8 +10,8 @@ const Cart = () => {
 
   const cartItems = cart.items;
   const subTotal = cartItems.reduce((accumulator, currentValue) => {
-    return accumulator + Number(currentValue.new_price);
-  },0)
+    return accumulator + Number(currentValue.new_price) * currentValue.quantity;
+  }, 0);
 
   const shipping = 0;
 
@@ -32,9 +33,26 @@ const Cart = () => {
               <div>{item.name}</div>
               <div>Rs.</div>
               <div>{item.new_price}</div>
+
+              <div className='flex items-center justify-center'>
+
+                <button onClick={() => dispatch(decrementQuantity(item.id))}
+                className='px-2 py-1 bg-gray-300 text-black rounded hover:bg-gray-400'
+                > - </button>
+
+                <span className='mx-2'>{item.quantity}</span>
+                
+               <button onClick={() => dispatch(incrementQuantity(item.id))}
+               className='px-2 py-1 bg-gray-300 text-black rounded hover:bg-gray-400' 
+               > + </button>
+
+               <button onClick={() => dispatch(removeFromCart(item.id))}
+               className='ml-2 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600' 
+               >Remove</button>
+
             </div>
-          ))
-        ) : ( 
+          </div>
+        ))) : ( 
           <p className='text-center text-gray-500'>Your cart is empty.</p>
         )}
       </div>
