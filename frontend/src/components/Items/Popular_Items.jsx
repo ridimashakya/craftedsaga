@@ -1,8 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cart';
 
 const Popular_Items = ({id, name, image, old_price, new_price}) => {
-  const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.cart ) ;
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, name, image, new_price}));
+  }
     return(
         <div className="w-[320px] mt-[50px] p-4">
             <img  className='w-full object-cover h-[300px]' src={image} alt="popular-crafts" />
@@ -17,10 +24,10 @@ const Popular_Items = ({id, name, image, old_price, new_price}) => {
                 Rs.{old_price}
               </div>
 
-              <div className="add-to-cart relative bottom-6 left-16 " onClick={()=> {navigate('/addToCart')}}>
+              <div className="add-to-cart relative bottom-6 left-16 ">
                 <i className='bx bxs-cart text-2xl'></i>
                 <br/>
-                <button>ADD</button>
+                <button onClick={handleAddToCart} >ADD</button>
 
               </div>
                   

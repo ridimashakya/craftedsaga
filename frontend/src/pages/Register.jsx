@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import image from "../assets/art1_1.jpeg";
-import CustomCheckBox from "../components/Checkbox/CustomCheckBox";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axios";
 
@@ -44,8 +43,8 @@ const Register = () => {
         >
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-4/5">
             <h1 className="text-3xl text-amber-900 py-2">REGISTER</h1>
-            <div className=" flex flex-col border-2 border-customColor rounded-md p-10 ">
-              <div className="flex justify-between items-center">
+            <div className=" flex flex-col border-2 border-customColor rounded-md p-5 px-10 ">
+              <div className="flex justify-between items-center px-1">
                 <div className="flex flex-col ">
                   <label htmlFor="first_name" className="py-1">
                     First Name
@@ -55,6 +54,7 @@ const Register = () => {
                     className="border-2 border-customColor rounded-md p-3 "
                     name="firstname"
                     onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -67,6 +67,7 @@ const Register = () => {
                     className="border-2 border-customColor rounded-md p-3 "
                     name="lastname"
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -79,6 +80,7 @@ const Register = () => {
                 className="border-2 border-customColor rounded-md p-3 "
                 name="email"
                 onChange={handleChange}
+                required
               />
               <label htmlFor="phone" className="py-1">
                 Phone Number
@@ -88,6 +90,7 @@ const Register = () => {
                 className="border-2 border-customColor rounded-md p-3 "
                 name="phone"
                 onChange={handleChange}
+                required
               />
               <label htmlFor="password" className="py-1">
                 Password
@@ -98,25 +101,19 @@ const Register = () => {
                 className="border-2 border-customColor rounded-md p-3 "
                 name="password"
                 onChange={handleChange}
+                required
               />
 
-              <CustomCheckBox
-                name="isChecked"
-                isChecked={form?.isChecked}
-                handleChange={handleCheckboxChange}
-                label1="I agree to all the terms and conditions"
-                label2="Forgot Password?"
-              />
               <button
                 type="submit"
                 className=" bg-orange text-white border-2 border-orange rounded-md w-full py-2 mt-5"
               >
                 Sign in
               </button>
-              <hr className="w-full border-customColor border-t-2 mt-9" />
+              <hr className="w-full border-customColor border-t-2 mt-5" />
               <span className="text-center p-5">Already have an account?</span>
               <button
-                className=" bg-customColor border-2 border-customColor text-black rounded-md w-full py-2"
+                className=" bg-customColor border-1 border-customColor text-black rounded-md w-full py-2 mt-[-10px]"
                 onClick={() => {
                   navigate("/log");
                 }}

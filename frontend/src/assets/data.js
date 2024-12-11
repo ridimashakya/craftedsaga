@@ -23,7 +23,7 @@ import handcraftedArt4 from './HandcraftedArts4.jpeg'
 // let fiber_arts = [
   const fiberArts = [
    {
-     id: 1,
+     id: 11,
      art_name: "textile art",
      art_image: fiberArt1,
      art_price_old: 3000,
@@ -31,49 +31,49 @@ import handcraftedArt4 from './HandcraftedArts4.jpeg'
 
    },
    {
-     id:2,
+     id:21,
      art_name: "baby cats",
      art_image: fiberArt2,
      art_price_old: 1000,
      art_price_new: 950
    },
    {
-     id: 3,
+     id: 31,
      art_name: "kittens",
      art_image: fiberArt3,
      art_price_old: 5000,
      art_price_new: 4500
    },
    {
-     id: 4,
+     id: 41,
      art_name: "aesthetic crochet kitty",
      art_image: fiberArt4,
      art_price_old: 6000,
      art_price_new: 5000
    },
    {
-     id: 5,
+     id: 51,
      art_name: "duck coaster",
      art_image: fiberArt5,
      art_price_old: 9000,
      art_price_new: 7000
    },
    {
-    id: 6,
+    id: 61,
     art_name: "aesthetic coaster",
     art_image: fiberArt6,
     art_price_old: 2000,
     art_price_new: 1500
   },
   {
-    id: 7,
+    id: 71,
     art_name: "crochet duck decor",
     art_image: fiberArt7,
     art_price_old: 6000,
     art_price_new: 5000
   },
   {
-    id: 8,
+    id: 81,
     art_name: "kermit froggos",
     art_image: fiberArt8,
     art_price_old: 6000,
@@ -84,28 +84,28 @@ import handcraftedArt4 from './HandcraftedArts4.jpeg'
 
 const visualArts = [
   {
-    id: 1,
+    id: 12,
     art_name: "women portray",
     art_image: visualArt1,
     art_price_old: 3000,
     art_price_new: 2000
   },
   {
-    id:2,
+    id:22,
     art_name: "aesthetic eyes",
     art_image: visualArt2,
     art_price_old: 1000,
     art_price_new: 950
   },
   {
-    id:3,
+    id:32,
     art_name: "sun aura",
     art_image: visualArt3,
     art_price_old: 1000,
     art_price_new: 950
   },
   {
-    id:4,
+    id:42,
     art_name: "hint of tradition",
     art_image: visualArt4,
     art_price_old: 1000,
@@ -115,28 +115,28 @@ const visualArts = [
 
 const handcraftedArts = [
   {
-    id: 1,
+    id: 13,
     art_name: "rounded vase",
     art_image: handcraftedArt1,
     art_price_old: 3000,
     art_price_new: 2000
   },
   {
-    id: 2,
+    id: 23,
     art_name: "ceramic cups",
     art_image: handcraftedArt2,
     art_price_old: 3000,
     art_price_new: 2000
   },
   {
-    id: 3,
+    id: 33,
     art_name: "flower vase collection",
     art_image: handcraftedArt3,
     art_price_old: 3000,
     art_price_new: 2000
   },
   {
-    id: 4,
+    id: 43,
     art_name: "tissue holder",
     art_image: handcraftedArt4,
     art_price_old: 3000,
@@ -144,6 +144,5 @@ const handcraftedArts = [
   }
 ]
 
-export {handcraftedArts}
-export {visualArts}
+export {handcraftedArts, visualArts}
 export default fiberArts

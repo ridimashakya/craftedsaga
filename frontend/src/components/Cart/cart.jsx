@@ -17,14 +17,14 @@ const Cart = () => {
 
   return (
 
-    <div className='flex bg-[#f2eeee] p-4'>
+    <div className='flex bg-[#f2eeee] min-h-screen p-4 relative'>
 
-      <div className='w-[60%] mt-[90px] '>
-        <h1 className="text-3xl ml-7 mt-7 border-b border-gray-300 pb-4 w-[47rem]">Shopping Cart</h1>
+      <div className='w-[60%] mt-[90px] max-h-[vh] h-[calc(100vh-5rem)] overflow-y-auto'>
+        <h1 className="text-3xl ml-7 mt-7 border-b border-gray-300 pb-4 w-[47rem] ">Shopping Cart</h1>
 
         {cartItems.length > 0 ? (
           cartItems.map((item, index) => (
-            <div key={index} className='grid grid-cols-[120px_150px_70px_70px_1fr] gap-2 text-center items-center border-b border-gray-300 pt-2 pb-4 w-[48rem]'>
+            <div key={index} className='grid grid-cols-[120px_150px_70px_70px_1fr] gap-2 text-center items-center border-b border-gray-300 pt-2 pb-4 w-[48rem] '>
 
               <div className='w-full pl-6 p-5'>
                 <img src={item.image} alt="Product" />
@@ -57,7 +57,7 @@ const Cart = () => {
         )}
       </div>
 
-      <div className='text-2xl text-[#2b2b2b] border border-gray-300 mt-[170px] w-[33rem] p-6 '>
+      <div className='text-2xl text-[#2b2b2b] border border-gray-300 mt-[170px] w-[33rem] p-6 fixed right-12 top-[-35px] '>
         <h2>Order Summary</h2>
 
         <div className='flex justify-between text-[18px] border-b border-gray-200 mt-5 p-7'>

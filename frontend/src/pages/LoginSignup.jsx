@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import image from '../assets/art1_1.jpeg'
-import CustomCheckBox from '../components/Checkbox/CustomCheckBox'
 import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../utils/axios'
 import {useCookies} from 'react-cookie'
+import CustomCheckBox from '../components/Checkbox/CustomCheckBox'
 
 const LoginSignup = () => {
   const [form, setForm] = useState({
@@ -60,9 +60,9 @@ const LoginSignup = () => {
             <div className=" flex flex-col border-2 border-customColor rounded-md p-10 ">
 
               <label htmlFor="email" className='py-2' >Email</label>
-              <input type="email" placeholder='Type your email' className='border-2 border-customColor rounded-md p-3 ' name="email" onChange={handleChange}/>
+              <input type="email" placeholder='Type your email' className='border-2 border-customColor rounded-md p-3 ' name="email" onChange={handleChange} required/>
               <label htmlFor="password" className='py-2'>Password</label>
-              <input type="password" placeholder='Type your password' className='border-2 border-customColor rounded-md p-3 ' name="password" onChange={handleChange}/>
+              <input type="password" placeholder='Type your password' className='border-2 border-customColor rounded-md p-3 ' name="password" onChange={handleChange} required/>
 
               <CustomCheckBox
                 name="isChecked"

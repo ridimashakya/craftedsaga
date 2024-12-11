@@ -28,8 +28,13 @@ const LandingPage = () => {
   // Placeholder for future dynamic featured artisan logic
   // Manually selecting the first artisan for now
   const featuredArtisan = artisans[0];
-  const allArts =[...fiberArts, ...visualArts, ...handcraftedArts];
-  
+
+  const allArts =[
+    ...fiberArts,
+    ...visualArts, 
+    ...handcraftedArts,
+  ];
+
   const navigate = useNavigate();
   
   return (
