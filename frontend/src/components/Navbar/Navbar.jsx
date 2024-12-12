@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo11.png'
 import { Outlet, useNavigate } from 'react-router-dom'
@@ -8,6 +8,15 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart ) ;
+
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const name = window.localStorage.getItem("userName");
+    if(name){
+      setUserName(name);
+    }
+  }, []);
 
   const header = [
     {link: "#crafts", title:"Crafts"},
@@ -39,6 +48,13 @@ const Navbar = () => {
     }
   }
 
+  const handleLogout = () => {
+    window.localStorage.removeItem("userId");
+    window.localStorage.removeItem("userName");
+
+    navigate("login", {replace: true});
+  }
+
   return (
     <>
       <nav className='nav'>
@@ -64,8 +80,15 @@ const Navbar = () => {
             </button>
 
           </li>
-
-          <button><li onClick={()=>{navigate('/login')}}>Account</li></button>
+          
+          {userName? (
+            <>
+              <span className='text-1xl p-1'> Welcome, {userName} </span>
+              <button onClick={handleLogout}> <i className="bx bx-log-out text-2xl p-1 hover:text-red-600"> </i> </button>
+            </>
+          ):
+            <button><li onClick={()=>{navigate('/login')}}>Account</li></button>
+           }
 
           <div>
             <i className='bx bxs-cart text-2xl' onClick={() => navigate('/cart')}></i>
