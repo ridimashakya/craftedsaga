@@ -1,35 +1,61 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import image from '../assets/art1_1.jpeg'
 import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../utils/axios'
 import {useCookies} from 'react-cookie'
 import CustomCheckBox from '../components/Checkbox/CustomCheckBox'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/cart'
 
 const LoginSignup = () => {
+  const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
     isChecked: false
   });
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cookie, setCookie] = useCookies("access_token");
   const navigate = useNavigate();
+
+  //check if user is logged in or not
+  useEffect(() => {
+    const storedToken = cookie.access_token;
+    if(storedToken){
+      setIsLoggedIn(true);
+    }
+  }, [cookie]);
+
+  const getCartItems = () => {
+    return JSON.parse(localStorage.getItem('cartItems')) || [];
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try{
       const response = await axiosInstance.post("/auth/login", form);
-      const {token, userId} = response.data;
+      const {token, userId, userName} = response.data;
       setCookie("access_token", token, {
         path: "/",
         sameSite: "none",
         secure: true,
       });
       window.localStorage.setItem("userId", userId);
+      window.localStorage.setItem("userName", userName)
+      
+      const cartItems = getCartItems();
+
+      await axiosInstance.post("/cart/addToCart", {
+        userId,
+        cartItems,
+    });
+
       navigate("/", {replace: true});
     } catch(error){
-      console.log(error.response.messgae);
+      console.log(error.response?.message || "Login failed");
     }
 
   }
